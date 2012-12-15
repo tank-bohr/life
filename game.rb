@@ -40,8 +40,9 @@ class World
     current.each do |row|
       row.each do |item|
         print item.is_alive? ? '◉' : '◌'
+        print "\t"
       end
-      puts
+      puts "\n" * 2
     end
   end
 
