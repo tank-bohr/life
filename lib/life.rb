@@ -1,0 +1,6 @@
+require 'life/version'
+require 'life/cell'
+require 'life/matrix'
+require 'life/world'
+require 'life/painter'
+require 'life/game'
