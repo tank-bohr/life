@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Life
   class Painter
     attr_accessor :alive, :dead, :clear_seq
