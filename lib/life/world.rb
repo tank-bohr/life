@@ -4,8 +4,14 @@ module Life
   class World
     attr_accessor :current
 
-    def build(grid)
-      self.current = Life::Matrix.walk(grid) do |i, j, elem|
+    def initialize(first_generation = nil)
+      unless first_generation.nil?
+        build(first_generation)
+      end
+    end
+
+    def build(first_generation)
+      self.current = Life::Matrix.walk(first_generation) do |i, j, elem|
         init_state = elem.respond_to?(:to_i) ? elem.to_i > 0 : elem
         Cell.new(self, i, j, init_state)
       end
