@@ -4,6 +4,8 @@ module Life
   class Cell
     attr_accessor :world, :i, :j, :is_alive
 
+    alias_method :is_alive?, :is_alive
+
     def initialize(world, i, j, is_alive)
       self.world    = world
       self.i        = i
@@ -15,7 +17,9 @@ module Life
       "[#{ i }][#{ j }]: #{is_alive}"
     end
 
-    alias_method :is_alive?, :is_alive
+    def to_i
+      :is_alive? ? 1 : 0
+    end
 
     def calc_new_state
       alive_neighbours_count = alive_neighbours.count

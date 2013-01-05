@@ -11,10 +11,14 @@ module Life
       end
     end
 
-    def next_generation
-      Life::Matrix.walk(current) do |i, j, elem|
+    def next_generation!
+      self.current = Life::Matrix.walk(current) do |i, j, elem|
         Cell.new(self, i, j, elem.calc_new_state)
       end
+    end
+
+    def to_a
+      Life::Matrix.walk(current){ |i, j, cell| cell.to_i }
     end
 
     def get(i, j)

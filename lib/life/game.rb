@@ -18,7 +18,7 @@ module Life
         painter.clear
         puts "Generation [#{generation}]"
         painter.draw(world)
-        world.current = world.next_generation
+        world.next_generation!
         generation += 1
         sleep 1
       end
