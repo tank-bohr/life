@@ -18,7 +18,7 @@ module Life
     end
 
     def to_i
-      :is_alive? ? 1 : 0
+      is_alive? ? 1 : 0
     end
 
     def calc_new_state
