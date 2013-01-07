@@ -1,24 +1,32 @@
 # Life
 
-TODO: Write a gem description
+Conway's Game of Life
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'life'
+    gem 'life', github: 'tank-bohr/life'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or install it yourself from th repo:
 
-    $ gem install life
+    $ git clone git://github.com/tank-bohr/life.git
+
+Build the gem
+    
+    $ gem build life.gemspec
+
+Install
+
+    $ gem install life.gem
 
 ## Usage
 
-TODO: Write usage instructions here
+  life.rb
 
 ## Contributing
 
