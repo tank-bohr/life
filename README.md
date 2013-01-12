@@ -26,7 +26,7 @@ Install
 
 ## Usage
 
-  life.rb
+    $ life.rb
 
 ## Contributing
 

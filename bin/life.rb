@@ -62,7 +62,7 @@ pattern = if File.exists?(pattern_file)
   File.open(pattern_file, &:read)
 else
   warn %Q/Soory! I havn't pattern [#{pattern_name}]/
-  exit
+  exit 0
 end
 first_generation = pattern.split(/[\r?\n]+/).map { |r| r.split(/\s+/) }
 
