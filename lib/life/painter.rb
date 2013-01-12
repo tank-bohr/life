@@ -1,26 +1,18 @@
 # encoding: utf-8
 module Life
   class Painter
-    attr_accessor :alive, :dead, :clear_seq
-
-    def initialize(params = {})
-      self.alive     = params.fetch(:alive, '◉')
-      self.dead      = params.fetch(:dead,  '◌')
-      self.clear_seq = params.fetch(:clear_seq, "\e[2J\e[H")
-    end
-
     def draw(world)
       world.current.each do |row|
         row.each do |item|
-          print item.is_alive? ? alive : dead
-          print "\t"
+          print item.is_alive? ? '◉' : '◌'
+          print %q/ /
         end
-        puts "\n" * 2
+        puts
       end
     end
 
     def clear
-      print clear_seq
+      print "\e[2J\e[H"
     end
   end
 end

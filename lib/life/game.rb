@@ -3,9 +3,9 @@ module Life
   class Game
     attr_accessor :world, :painter
 
-    def initialize(first_generation, painter_options = {})
+    def initialize(first_generation)
       self.world   = Life::World.new(first_generation)
-      self.painter = Life::Painter.new(painter_options)
+      self.painter = Life::Painter.new
     end
 
     def run
