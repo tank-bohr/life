@@ -1,4 +1,5 @@
 require 'life/version'
+require 'life/pattern_loader'
 require 'life/cell'
 require 'life/matrix'
 require 'life/world'

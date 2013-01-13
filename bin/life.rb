@@ -3,18 +3,14 @@ require 'optparse'
 require 'life'
 
 options = {
-  pattern: 'explosion',
+  pattern: nil,
   delay: 1,
   spaces: 1,
   lines: 1,
   verbose: false
 }
 
-patterns_dir = File.dirname(__FILE__) + '/../patterns'
-patterns = Dir.entries(patterns_dir)\
-  .map    { |f| f.chomp('.life')}\
-  .select { |f| f !~ /\.\.?/ }
-
+patterns = Life::PatternLoader.patterns
 parser = OptionParser.new do |o|
   o.on('-p', '--pattern PATTERN',
     # patterns,
@@ -57,14 +53,7 @@ end
 parser.parse!
 
 pattern_name = options.delete(:pattern)
-pattern_file = "#{patterns_dir}/#{pattern_name}.life"
-pattern = if File.exists?(pattern_file)
-  File.open(pattern_file, &:read)
-else
-  warn %Q/Soory! I havn't pattern [#{pattern_name}]/
-  exit 0
-end
-first_generation = pattern.split(/[\r?\n]+/).map { |r| r.split(/\s+/) }
+first_generation = Life::PatternLoader.pattern(pattern_name)
 
 game = Life::Game.new(first_generation, options)
 game.run()
