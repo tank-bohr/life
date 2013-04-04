@@ -19,7 +19,7 @@ module Life
       pattern = if File.exists?(pattern_file)
         File.open(pattern_file, &:read)
       else
-        raise %Q/Soory! I havn't pattern [#{pattern_name}]/
+        raise %Q/Sorry! I havn't pattern [#{pattern_name}]/
       end
     end
 
